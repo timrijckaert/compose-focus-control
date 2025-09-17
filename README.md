@@ -2,6 +2,9 @@
 
 Sample code for DroidKaigi 2025 presentation on Android TV development with Jetpack Compose.
 
+https://github.com/user-attachments/assets/0ef2c595-49e1-4c5c-90c8-5584d15bbdd8
+
+
 ## Presentation
 
 📺 **DroidKaigi 2025**: [Session Link](https://2025.droidkaigi.jp/timetable/946001/)
