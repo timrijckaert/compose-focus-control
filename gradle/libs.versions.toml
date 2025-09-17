@@ -6,6 +6,7 @@ appcompat = "1.7.1"
 composeBom = "2025.09.00"
 tvFoundation = "1.0.0-alpha12"
 tvMaterial = "1.0.1"
+navigationCompose = "2.9.4"
 lifecycleRuntimeKtx = "2.9.3"
 activityCompose = "1.11.0"
 
@@ -23,6 +24,7 @@ androidx-tv-foundation = { group = "androidx.tv", name = "tv-foundation", versio
 androidx-tv-material = { group = "androidx.tv", name = "tv-material", version.ref = "tvMaterial" }
 androidx-lifecycle-runtime-ktx = { group = "androidx.lifecycle", name = "lifecycle-runtime-ktx", version.ref = "lifecycleRuntimeKtx" }
 androidx-activity-compose = { group = "androidx.activity", name = "activity-compose", version.ref = "activityCompose" }
+androidx-navigation-compose = { group = "androidx.navigation", name = "navigation-compose", version.ref = "navigationCompose" }
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }
