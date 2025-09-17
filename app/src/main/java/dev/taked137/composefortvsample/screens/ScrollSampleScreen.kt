@@ -33,6 +33,7 @@ import dev.taked137.composefortvsample.components.CardRowSection
 import dev.taked137.composefortvsample.components.CardData
 import dev.taked137.composefortvsample.components.CardRowData
 import dev.taked137.composefortvsample.utils.PositionFocusedItemInLazyLayout
+import dev.taked137.composefortvsample.utils.scrollParentOnChildFocus
 
 @OptIn(ExperimentalFoundationApi::class)
 @Composable
@@ -57,25 +58,36 @@ fun ScrollSampleScreen(
       modifier = Modifier.fillMaxSize()
     )
 
-    LazyColumn(
-      modifier = Modifier.fillMaxSize(),
-      verticalArrangement = Arrangement.spacedBy(32.dp),
-      contentPadding = PaddingValues(vertical = 32.dp),
-      state = listState,
-    ) {
-      item {
-        HeroSection(createFeaturedContent())
-      }
+    // ⭐️[scroll] step1: Use BringIntoViewSpec to control the focused item position
+    // ⚠️Note: When trying step2, remove this
+    // PositionFocusedItemInLazyLayout(
+    //   parentFraction = 0.65f,
+    //   childFraction = 1f,
+    // ) {
+      LazyColumn(
+        modifier = Modifier.fillMaxSize(),
+        verticalArrangement = Arrangement.spacedBy(32.dp),
+        contentPadding = PaddingValues(vertical = 32.dp),
+        state = listState,
+      ) {
+        item {
+          HeroSection(
+            // ⭐️[scroll] step2: Use BringIntoViewModifierNode to display the whole hero section
+            // modifier = Modifier.scrollParentOnChildFocus(),
+            featuredContent = createFeaturedContent(),
+          )
+        }
 
-      items(createSampleCardRows()) { row ->
-        PositionFocusedItemInLazyLayout(
-          parentFraction = 0.3f,
-          childFraction = 0f
-        ) {
-          CardRowSection(row)
+        items(createSampleCardRows()) { row ->
+          PositionFocusedItemInLazyLayout(
+            parentFraction = 0.3f,
+            childFraction = 0f
+          ) {
+            CardRowSection(row)
+          }
         }
       }
-    }
+    // }
   }
 }
 
