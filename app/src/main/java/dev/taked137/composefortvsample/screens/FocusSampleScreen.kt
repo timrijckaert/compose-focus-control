@@ -4,9 +4,12 @@ import android.content.res.Configuration
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.width
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.mutableIntStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.focus.FocusRequester
+import androidx.compose.ui.focus.focusRequester
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import dev.taked137.composefortvsample.components.DetailList
@@ -40,8 +43,16 @@ internal fun FocusSampleScreen(
   uiMode = Configuration.UI_MODE_TYPE_TELEVISION,
 )
 @Composable
-private fun GreetingPreview() {
+private fun FocusSampleScreenPreview() {
+  val focusRequester = remember { FocusRequester() }
+
   ComposeForTVSampleTheme {
-    FocusSampleScreen()
+    FocusSampleScreen(
+      modifier = Modifier.focusRequester(focusRequester),
+    )
+  }
+
+  LaunchedEffect(Unit) {
+    focusRequester.requestFocus()
   }
 }

@@ -1,5 +1,6 @@
 package dev.taked137.composefortvsample.components
 
+import android.content.res.Configuration
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
@@ -11,12 +12,17 @@ import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.LazyListState
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
+import androidx.compose.runtime.remember
 import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.focus.FocusRequester
+import androidx.compose.ui.focus.focusRequester
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.RectangleShape
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.tv.material3.ClickableSurfaceDefaults
@@ -109,3 +115,25 @@ private val imageRes = listOf(
   R.drawable.img5,
   R.drawable.img6,
 )
+
+@Preview(
+  name = "tv",
+  showBackground = true,
+  device = "spec:width=962dp,height=541dp,dpi=213",
+  uiMode = Configuration.UI_MODE_TYPE_TELEVISION,
+)
+@Composable
+private fun DetailListPreview() {
+  val focusRequester = remember { FocusRequester() }
+
+  DetailList(
+    listIndex = 0,
+    modifier = Modifier
+      .fillMaxWidth()
+      .focusRequester(focusRequester),
+  )
+
+  LaunchedEffect(Unit) {
+    focusRequester.requestFocus()
+  }
+}
