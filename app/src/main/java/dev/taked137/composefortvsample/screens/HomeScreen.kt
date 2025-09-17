@@ -22,6 +22,7 @@ import dev.taked137.composefortvsample.ui.theme.ComposeForTVSampleTheme
 @Composable
 internal fun HomeScreen(
   onNavigateToFocusSample: () -> Unit,
+  onNavigateToScrollSample: () -> Unit,
   modifier: Modifier = Modifier,
 ) {
   Column(
@@ -30,11 +31,10 @@ internal fun HomeScreen(
       .padding(16.dp)
       .background(Color.White),
     horizontalAlignment = Alignment.CenterHorizontally,
-    verticalArrangement = Arrangement.Center,
+    verticalArrangement = Arrangement.spacedBy(24.dp, Alignment.CenterVertically),
   ) {
     Text(
       text = "Compose for TV Sample",
-      modifier = Modifier.padding(bottom = 24.dp)
     )
 
     Button(
@@ -51,6 +51,21 @@ internal fun HomeScreen(
     ) {
       Text("Focus Sample Screen")
     }
+
+    Button(
+      colors = ButtonDefaults.colors(
+        focusedContainerColor = Color.Red.copy(alpha = 0.3f),
+      ),
+      border = ButtonDefaults.border(
+        focusedBorder = Border(
+          border = BorderStroke(2.dp, Color.Red.copy(alpha = 0.3f)),
+          inset = 4.dp,
+        ),
+      ),
+      onClick = onNavigateToScrollSample,
+    ) {
+      Text("Scroll Sample Screen")
+    }
   }
 }
 
@@ -65,6 +80,7 @@ private fun HomeScreenPreview() {
   ComposeForTVSampleTheme {
     HomeScreen(
       onNavigateToFocusSample = {},
+      onNavigateToScrollSample = {},
     )
   }
 }

@@ -13,6 +13,7 @@ import androidx.navigation.compose.rememberNavController
 import dev.taked137.composefortvsample.navigation.Screen
 import dev.taked137.composefortvsample.screens.FocusSampleScreen
 import dev.taked137.composefortvsample.screens.HomeScreen
+import dev.taked137.composefortvsample.screens.ScrollSampleScreen
 import dev.taked137.composefortvsample.ui.theme.ComposeForTVSampleTheme
 
 class MainActivity : ComponentActivity() {
@@ -44,12 +45,19 @@ private fun AppNavigation(
       HomeScreen(
         onNavigateToFocusSample = {
           navController.navigate(Screen.FOCUS_SAMPLE.route)
-        }
+        },
+        onNavigateToScrollSample = {
+          navController.navigate(Screen.SCROLL_SAMPLE.route)
+        },
       )
     }
 
     composable(Screen.FOCUS_SAMPLE.route) {
       FocusSampleScreen()
+    }
+
+    composable(Screen.SCROLL_SAMPLE.route) {
+      ScrollSampleScreen()
     }
   }
 }

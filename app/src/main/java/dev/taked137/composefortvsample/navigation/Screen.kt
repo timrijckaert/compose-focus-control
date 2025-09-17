@@ -2,5 +2,6 @@ package dev.taked137.composefortvsample.navigation
 
 enum class Screen(val route: String) {
     HOME("home"),
-    FOCUS_SAMPLE("focus_sample")
+    FOCUS_SAMPLE("focus_sample"),
+    SCROLL_SAMPLE("scroll_sample")
 }
