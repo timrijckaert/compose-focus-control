@@ -2,6 +2,7 @@ package dev.taked137.composefortvsample.screens
 
 import android.content.res.Configuration
 import androidx.compose.foundation.BorderStroke
+import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
@@ -26,7 +27,8 @@ internal fun HomeScreen(
   Column(
     modifier = modifier
       .fillMaxSize()
-      .padding(16.dp),
+      .padding(16.dp)
+      .background(Color.White),
     horizontalAlignment = Alignment.CenterHorizontally,
     verticalArrangement = Arrangement.Center,
   ) {

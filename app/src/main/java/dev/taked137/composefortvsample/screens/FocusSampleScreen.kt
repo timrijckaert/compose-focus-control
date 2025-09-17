@@ -1,6 +1,7 @@
 package dev.taked137.composefortvsample.screens
 
 import android.content.res.Configuration
+import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.width
 import androidx.compose.runtime.Composable
@@ -12,6 +13,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.focus.FocusRequester
 import androidx.compose.ui.focus.focusRequester
 import androidx.compose.ui.focus.focusRestorer
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import dev.taked137.composefortvsample.components.DetailList
@@ -26,7 +28,7 @@ internal fun FocusSampleScreen(
   val focusRequester = remember { FocusRequester() }
 
   Row(
-    modifier = modifier,
+    modifier = modifier.background(Color.White),
   ) {
     MasterList(
       modifier = Modifier
