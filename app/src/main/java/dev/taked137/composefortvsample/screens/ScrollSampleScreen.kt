@@ -25,6 +25,7 @@ import androidx.compose.foundation.lazy.LazyListState
 import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.lazy.rememberLazyListState
 import androidx.compose.runtime.derivedStateOf
+import androidx.compose.runtime.key
 import androidx.compose.ui.graphics.graphicsLayer
 import dev.taked137.composefortvsample.R
 import dev.taked137.composefortvsample.components.FeaturedContent
@@ -79,11 +80,13 @@ fun ScrollSampleScreen(
         }
 
         items(createSampleCardRows()) { row ->
-          PositionFocusedItemInLazyLayout(
-            parentFraction = 0.3f,
-            childFraction = 0f
-          ) {
-            CardRowSection(row)
+          key(row.title) {
+            PositionFocusedItemInLazyLayout(
+              parentFraction = 0.3f,
+              childFraction = 0f
+            ) {
+              CardRowSection(row)
+            }
           }
         }
       }
