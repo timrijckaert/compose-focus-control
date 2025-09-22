@@ -17,9 +17,7 @@ import androidx.tv.material3.Card
 import androidx.tv.material3.CardDefaults
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.remember
-import androidx.compose.runtime.DisposableEffect
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.layout.LocalPinnableContainer
 import androidx.compose.ui.focus.FocusRequester
 import androidx.compose.ui.focus.focusRequester
 import androidx.compose.ui.focus.focusRestorer
@@ -50,12 +48,6 @@ fun CardRowSection(
       color = Color.White,
       modifier = Modifier.padding(bottom = 8.dp, start = 48.dp)
     )
-
-    val pinnableContainer = LocalPinnableContainer.current
-    DisposableEffect(pinnableContainer) {
-      val handle = pinnableContainer?.pin()
-      onDispose { handle?.release() }
-    }
 
     val focusRequester = remember { FocusRequester() }
     LazyRow(
