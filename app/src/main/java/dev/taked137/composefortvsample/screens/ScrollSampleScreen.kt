@@ -80,7 +80,7 @@ fun ScrollSampleScreen(
         }
 
         items(createSampleCardRows()) { row ->
-          key(row.title) {
+          key(row.hashCode()) {
             PositionFocusedItemInLazyLayout(
               parentFraction = 0.3f,
               childFraction = 0f
